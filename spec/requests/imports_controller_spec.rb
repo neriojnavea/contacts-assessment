@@ -1,0 +1,24 @@
+require 'rails_helper'
+
+RSpec.describe ImportsController, type: :controller do
+	let(:user) { create(:user) }
+
+	describe 'POST #create' do
+		login_user
+
+		before do 
+			ActiveJob::Base.queue_adapter = :test 
+		end
+
+		it 'creates the import record' do
+			attrs = attributes_for(:import)
+
+			expect { 
+		    post :index, params: { import: attrs }
+			}.to change { Import.count }.by(1)
+       
+
+			expect(response.status).to eq(200)
+		end
+	end
+end
