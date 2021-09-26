@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProcessContactImportJob < ApplicationJob
   queue_as :default
 

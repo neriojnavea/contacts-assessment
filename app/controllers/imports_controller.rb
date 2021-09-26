@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ImportsController < ApplicationController
   before_action :authenticate_user!
 

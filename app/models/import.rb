@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Import < ApplicationRecord
   ON_HOLD = 'on hold'
   PROCESSING = 'processing'
