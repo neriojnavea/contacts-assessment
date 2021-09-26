@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 ActiveRecord::Base.transaction do
-	@user = User.create!(email: 'user@example.com', password: 'password')
+  @user = User.create!(email: 'user@example.com', password: 'password')
 end
