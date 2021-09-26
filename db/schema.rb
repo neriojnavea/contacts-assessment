@@ -45,7 +45,14 @@ ActiveRecord::Schema.define(version: 2021_09_26_163523) do
 
   create_table "imports", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "status"
+    t.string "status", default: "on hold"
+    t.integer "name_column_number"
+    t.integer "birthdate_column_number"
+    t.integer "phone_column_number"
+    t.integer "address_column_number"
+    t.integer "credit_card_column_number"
+    t.integer "franchise_column_number"
+    t.integer "email_column_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_imports_on_user_id"
