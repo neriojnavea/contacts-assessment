@@ -10,7 +10,7 @@ class ImportsController < ApplicationController
       phone_column_number: 3,
       address_column_number: 4,
       credit_card_column_number: 5,
-      email_column_number: 6 
+      email_column_number: 6
     )
 
     @imports = current_user.imports
@@ -27,7 +27,7 @@ class ImportsController < ApplicationController
 
     redirect_to imports_path
   end
-  
+
   def show
     @import = current_user.imports.find(params[:id])
   end

@@ -1,7 +1,9 @@
-class ContactsController < ApplicationController
-	before_action :authenticate_user!
+# frozen_string_literal: true
 
-	def index
-		@contacts = current_user.contacts.paginate(page: params[:page])
-	end
+class ContactsController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @contacts = current_user.contacts.paginate(page: params[:page])
+  end
 end

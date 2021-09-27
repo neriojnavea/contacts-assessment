@@ -59,8 +59,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'credit_card_validations'
 gem 'devise'
 gem 'rexml', '~> 3.2.4'
 gem 'sidekiq'
-gem 'credit_card_validations'
 gem 'will_paginate', '~> 3.1.0'

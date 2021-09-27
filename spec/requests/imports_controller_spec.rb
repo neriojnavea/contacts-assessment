@@ -16,7 +16,6 @@ RSpec.describe ImportsController do
     end
 
     it 'creates the import record' do
-
       expect do
         post imports_path, params: { import: attrs }
         perform_enqueued_jobs
@@ -45,12 +44,12 @@ RSpec.describe ImportsController do
         expect(import.status).to eq(Import::FAILED)
 
         expect(import.logs).to contain_exactly(
-          "Error importing \"E$$pecial Characters Contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com\" row: Validation failed: Name is invalid",
-          "Error importing \"Invalid Birthdate Contact,12/1/2020,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com\" row: Validation failed: Date is invalid",
-          "Error importing \"Invalid phone Contact,1993-01-01,(+57) 320 432 0509,Not empty,4444333322221111,email@gmail.com\" row: Validation failed: Phone is invalid",
-          "Error importing \"invalid credit card,1993-01-01,(+57) 320 432 05 09,Not empty,123,email@gmail.com\" row: Validation failed: Card number is invalid",
-          "Error importing \"Invalid email contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email\" row: Validation failed: Email is invalid",
-          "Error importing \"Duplicated email contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,user@example.com\" row: Validation failed: Email has already been taken"
+          'Error importing "E$$pecial Characters Contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com" row: Validation failed: Name is invalid',
+          'Error importing "Invalid Birthdate Contact,12/1/2020,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com" row: Validation failed: Date is invalid',
+          'Error importing "Invalid phone Contact,1993-01-01,(+57) 320 432 0509,Not empty,4444333322221111,email@gmail.com" row: Validation failed: Phone is invalid',
+          'Error importing "invalid credit card,1993-01-01,(+57) 320 432 05 09,Not empty,123,email@gmail.com" row: Validation failed: Card number is invalid',
+          'Error importing "Invalid email contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email" row: Validation failed: Email is invalid',
+          'Error importing "Duplicated email contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,user@example.com" row: Validation failed: Email has already been taken'
         )
       end
     end
