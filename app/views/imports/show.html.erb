@@ -1,0 +1,11 @@
+<div class="card">
+  <div class='card-body'>
+		<h3>Import <%= @import.created_at %></h5>
+		<h5>Logs</h5>
+		<ul>
+			<% @import.logs.each do |log| %>
+				<li><%= log %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

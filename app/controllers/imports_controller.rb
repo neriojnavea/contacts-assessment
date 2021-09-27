@@ -27,6 +27,12 @@ class ImportsController < ApplicationController
 
     redirect_to imports_path
   end
+  
+  def show
+    @import = current_user.imports.find(params[:id])
+  end
+
+  private
 
   def import_params
     params

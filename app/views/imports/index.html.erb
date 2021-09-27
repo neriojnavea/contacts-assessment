@@ -44,7 +44,7 @@
 		<div class='card-body'>
 		  <div class='row'>
 				<div class='col'>
-					<h5 class='card-title'>Import <%= import.created_at %></h5>
+					<h5 class='card-title'><%= link_to "Import #{import.created_at}", import_path(import) %></h5>
 				</div>
 				<div class='col text-end'>
 				  <span class="badge bg-<%= variant_for_status(import.status) %>"><%= import.status.capitalize %></span>
