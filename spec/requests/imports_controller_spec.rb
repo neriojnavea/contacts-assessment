@@ -36,9 +36,10 @@ RSpec.describe ImportsController do
 
         import = Import.last
 
-        expect(import.logs).to eq([
-          "Error importing \"E$$pecial Characters Contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com\" row: Name is invalid"
-        ])
+        expect(import.logs).to contain_exactly(
+          "Error importing \"E$$pecial Characters Contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com\" row: Validation failed: Name is invalid",
+          "Error importing \"Invalid Birthdate Contact,12/1/2020,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com\" row: Validation failed: Date is invalid"
+        )
       end
     end
   end
