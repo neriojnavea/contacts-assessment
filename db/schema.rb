@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_09_26_222346) do
     t.integer "credit_card_column_number"
     t.integer "email_column_number"
     t.boolean "has_headers?"
+    t.string "logs", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_imports_on_user_id"
