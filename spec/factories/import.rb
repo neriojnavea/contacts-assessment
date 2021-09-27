@@ -10,5 +10,6 @@ FactoryBot.define do
     credit_card_column_number { 5 }
     franchise_column_number { 6 }
     email_column_number { 7 }
+    has_headers { true }
   end
 end

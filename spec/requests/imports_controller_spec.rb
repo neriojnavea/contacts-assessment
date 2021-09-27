@@ -2,24 +2,24 @@
 
 require 'rails_helper'
 
-RSpec.describe ImportsController, type: :controller do
+RSpec.describe ImportsController do
   let(:user) { create(:user) }
 
   describe 'POST #create' do
-    login_user
+    let(:attrs) { attributes_for(:import).merge({ file: fixture_file_upload('contact_sample_import.csv') }) }
 
     before do
       ActiveJob::Base.queue_adapter = :test
     end
 
     it 'creates the import record' do
-      attrs = attributes_for(:import)
+      sign_in user
 
       expect do
-        post :index, params: { import: attrs }
+        post imports_path, params: { import: attrs }
       end.to change { Import.count }.by(1)
 
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(302)
     end
   end
 end

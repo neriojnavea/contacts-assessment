@@ -12,6 +12,7 @@ class CreateImports < ActiveRecord::Migration[6.1]
       t.integer :credit_card_column_number
       t.integer :franchise_column_number
       t.integer :email_column_number
+      t.boolean :has_headers?
 
       t.timestamps
     end

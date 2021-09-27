@@ -20,6 +20,11 @@
 					<%= render partial: 'column_number_field', locals: { label: 'Franchise Column #', attribute: :franchise_column_number, form: form } %>
 					<%= render partial: 'column_number_field', locals: { label: 'Email Column #', attribute: :email_column_number, form: form } %>
 
+					<div class="mb-3 form-check">
+						<label class="form-check-label" for="has-header">Has Headers?</label>
+						<%= form.check_box :has_headers?, class:'form-check-input', id: 'has-header' %>
+					</div>
+
 					<%= form.submit 'Import', class: 'btn btn-primary' %>
 				<% end %>
 			</div>
