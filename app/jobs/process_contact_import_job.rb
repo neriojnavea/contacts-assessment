@@ -5,8 +5,8 @@ class ProcessContactImportJob < ApplicationJob
   queue_as :default
 
   def perform(import_id)
+    @at_least_one_contact_created = false
     import = Import.find(import_id)
-
     import.update!(status: Import::PROCESSING)
 
     CSV.parse(import.file.download).each_with_index do |row, index|
@@ -14,6 +14,8 @@ class ProcessContactImportJob < ApplicationJob
 
       create_contact(row, import)
     end
+
+    import.update!(status: @at_least_one_contact_created ? Import::TERMINATED : Import::FAILED)
   end
 
   def create_contact(row, import)
@@ -32,6 +34,7 @@ class ProcessContactImportJob < ApplicationJob
       email: row[import.email_column_number - 1],
       user: import.user
     )
+    @at_least_one_contact_created = true
   rescue ActiveRecord::RecordInvalid => e
     push_logs(import, row, e.message)
   rescue Date::Error

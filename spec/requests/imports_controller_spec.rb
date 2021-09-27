@@ -23,9 +23,10 @@ RSpec.describe ImportsController do
       end.to change { Import.count }.by(1).and change { Contact.count }.by(1)
 
       contact = Contact.last
+      import = Import.last
 
+      expect(import.status).to eq(Import::TERMINATED)
       expect(contact.credit_card).to eq('1111')
-
       expect(response.status).to eq(302)
     end
 
@@ -40,6 +41,8 @@ RSpec.describe ImportsController do
         end.to change { Import.count }.by(1).and change { Contact.count }.by(0)
 
         import = Import.last
+
+        expect(import.status).to eq(Import::FAILED)
 
         expect(import.logs).to contain_exactly(
           "Error importing \"E$$pecial Characters Contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com\" row: Validation failed: Name is invalid",
