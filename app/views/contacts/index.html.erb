@@ -1,0 +1,44 @@
+<h3>Contacts</h3>
+
+<table class='table'>
+  <thead>
+	  <tr>
+		  <th>Name</th>
+		  <th>Birthdate</th>
+		  <th>Phone</th>
+		  <th>Address</th>
+		  <th>Credit Card</th>
+		  <th>Franchise</th>
+		  <th>Email</th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @contacts.each do |contact| %>
+		  <tr>
+				<td>
+					<%= contact.name %>
+				</td>
+				<td>
+					<%= contact.date_of_birth %>
+				</td>
+				<td>
+					<%= contact.phone %>
+				</td>
+				<td>
+					<%= contact.address %>
+				</td>
+				<td>
+					<%= '*' * 12 + contact.credit_card %>
+				</td>
+				<td>
+					<%= contact.franchise %>
+				</td>
+				<td>
+					<%= contact.email %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= will_paginate @posts %>

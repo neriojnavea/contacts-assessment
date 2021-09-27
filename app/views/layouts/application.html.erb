@@ -15,7 +15,8 @@
     <% if user_signed_in? %>
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Importer</a>
+          <%= link_to('Importer', root_path, class: 'navbar-brand') %>
+          <%= link_to('Contacts', contacts_path) %>
           <div class="d-flex">
             <%= link_to('Sign Out', destroy_user_session_path, method: :delete) %>
           </div>
