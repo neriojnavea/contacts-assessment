@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_09_26_222346) do
     t.string "phone"
     t.string "address"
     t.string "credit_card"
+    t.string "franchise"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -64,7 +65,6 @@ ActiveRecord::Schema.define(version: 2021_09_26_222346) do
     t.integer "phone_column_number"
     t.integer "address_column_number"
     t.integer "credit_card_column_number"
-    t.integer "franchise_column_number"
     t.integer "email_column_number"
     t.boolean "has_headers?"
     t.datetime "created_at", precision: 6, null: false

@@ -8,8 +8,7 @@ FactoryBot.define do
     phone_column_number { 3 }
     address_column_number { 4 }
     credit_card_column_number { 5 }
-    franchise_column_number { 6 }
-    email_column_number { 7 }
-    has_headers { true }
+    email_column_number { 6 }
+    has_headers? { true }
   end
 end

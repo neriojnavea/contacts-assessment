@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe ImportsController do
+  include ActiveJob::TestHelper
+
   let(:user) { create(:user) }
 
   describe 'POST #create' do
@@ -17,7 +19,8 @@ RSpec.describe ImportsController do
 
       expect do
         post imports_path, params: { import: attrs }
-      end.to change { Import.count }.by(1)
+        perform_enqueued_jobs
+      end.to change { Import.count }.by(1).and change { Contact.count }.by(1)
 
       expect(response.status).to eq(302)
     end
