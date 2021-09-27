@@ -17,13 +17,18 @@ class ProcessContactImportJob < ApplicationJob
   end
 
   def create_contact(row, import)
+    card_number =  row[import.credit_card_column_number - 1]
+    card_detector = CreditCardValidations::Detector.new(card_number)
+
+    return push_logs(import, row, "Validation failed: Card number is invalid") unless card_detector.valid?
+
     Contact.create!(
       name: row[import.name_column_number - 1],
       date_of_birth: parse_date(row[import.birthdate_column_number - 1]),
       phone: row[import.phone_column_number - 1],
       address: row[import.address_column_number - 1],
-      credit_card: row[import.credit_card_column_number - 1],
-      franchise: '', #TODO: this comes from credit card
+      credit_card: card_number.last(4),
+      franchise: card_detector.brand&.capitalize, #TODO: this comes from credit card
       email: row[import.email_column_number - 1],
       user: import.user
     )

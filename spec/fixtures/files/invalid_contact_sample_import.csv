@@ -1,3 +1,7 @@
 name,birthdate,phone,address,credit card,email
 E$$pecial Characters Contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com
 Invalid Birthdate Contact,12/1/2020,(+57) 320 432 05 09,Not empty,4444333322221111,email@gmail.com
+Invalid phone Contact,1993-01-01,(+57) 320 432 0509,Not empty,4444333322221111,email@gmail.com
+invalid credit card,1993-01-01,(+57) 320 432 05 09,Not empty,123,email@gmail.com
+Invalid email contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,email
+Duplicated email contact,1993-01-01,(+57) 320 432 05 09,Not empty,4444333322221111,user@example.com
